@@ -1,46 +1,36 @@
-function openLightbox(imgElement) {
-    alert("I saw you ")
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightbox-image");
-   
-    // Set the source of the lightbox image to the clicked image's source
-    lightboxImage.src = imgElement.src;
+document.addEventListener("DOMContentLoaded", function(event) {
+    alert("Hello!")
+    });
+
+
     
-    // Display the lightbox
-    lightbox.style.display = "flex";
-}
+document.addEventListener("DOMContentLoaded", function(event) {
+   
+    var images = document.querySelectorAll(".clickable-image");
 
-function closeLightbox() {
-    const lightbox = document.getElementById("lightbox");
-    lightbox.style.display = "none";
-}
+    // Add a click event listener to each image
+    images.forEach(function(image) {
+        image.addEventListener("click", function(event) {
+            // Get the ID of the clicked image
+            var clickedImageId = event.target.id;
+            alert("I saw you click " + clickedImageId + "!");
+            if (event.target.classList.contains("small")) {
+                event.target.classList.remove("small"); // Remove the class "small"
+            } else {
+                event.target.classList.add("small"); // Add the class "small"
+            }
+    
+            // Log the ID and updated className of the clicked image to the console
+            console.log("Image ID:", clickedImageId);
+            console.log("Updated Class Name:", event.target.className);
 
-
-
-
-
-// // document.addEventListener("DOMContentLoaded", function(event) {
-// // alert("Hello!")
-// // });
-
-// function smartClick() {
-//    // alert("hajh");
-//    var thumbnailElement = document.getElementById("smart_thumbnail");
-
-//     // Check if the element has the "small" class
-//     if (thumbnailElement.className === "small") {
-//         // Remove the "small" class to make the image big
-//         thumbnailElement.id = "lightbox";
-//     } else {
-//         // Add the "small" class to make the image small again
-//         thumbnailElement.className = "small";
-//     }
-// }
+           
+        });
+    });
+});
 
 
 
-// // thumbnailElement.addEventListener("click", function() {
-// //     // Check if the image is currently "small"
-// //     alert("gaga");
-// //     console.log("Clicked");
-// //   });
+
+
+
